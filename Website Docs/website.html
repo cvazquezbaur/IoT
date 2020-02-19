@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<script src='webLogic.js'></script>
+<head>
+<title>C3</title>
+</head>
+<body class="body" onload="game()">
+
+<h1>C3 LED Matrix Smart Clock</h1>
+
+
+    <p>Show Clock:</p>
+    <input type="radio" id="clockYes" name="clock" value="clock">
+    <label for="clockYes">Yes</label><br>
+    <input type="radio" id="clockNo" name="clock" value="clock">
+    <label for="clockNo">No</label><br>
+
+    <p>Show Date:</p>
+    <input type="radio" id="dateYes" name="date" value="date">
+    <label for="dateYes">Yes</label><br>
+    <input type="radio" id="dateNo" name="date" value="date">
+    <label for="dateNo">No</label><br>
+ 
+    <p>Show Weather:</p>
+    <input type="radio" id="weatherYes" name="weather" value="weather">
+    <label for="weatherYes">Yes</label><br>
+    <input type="radio" id="weatherNo" name="weather" value="weather">
+    <label for="weatherNo">No</label><br>
+    
+    <p>Show Calendar Events:</p>
+    <input type="radio" id="calendarYes" name="calendar" value="calendar">
+    <label for="calendarYes">Yes</label><br>
+    <input type="radio" id="calendarNo" name="calendar" value="calendar">
+    <label for="calendarNo">No</label><br>
+    
+</body>
+<script>
+    if(clock.item(clockYes) == true){
+        getTime();
+    }
+
+</script>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');    
+    * {
+        font-family: 'Barlow Semi Condensed', sans-serif;    }
+    p{
+        font-size: 30px;   
+    }
+
+    label{
+        font-size: 20px;
+    }
+
+    h1{
+        background-color: lightgrey;
+        width: 350px;
+         border: 7px solid black;
+    }
+
+</style>
+
+<body bgcolor="#E0E0E0"></body>
+</html>
+<!--font-family: 'Montserrat', sans-serif;-->
