@@ -1,45 +1,47 @@
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <script src='webLogic.js'></script>
 <head>
 <title>C3</title>
 </head>
-<body class="body" onload="game()">
 
 <h1>C3 LED Matrix Smart Clock</h1>
 
-
     <p>Show Clock:</p>
-    <input type="radio" id="clockYes" name="clock" value="clock">
-    <label for="clockYes">Yes</label><br>
-    <input type="radio" id="clockNo" name="clock" value="clock">
-    <label for="clockNo">No</label><br>
+      <input type="radio" id="clockYes" name="clock" value="clockYes">
+      <label for="clockYes">Yes</label><br>
+      <input type="radio" id="clockNo" name="clock" value="clockNo">
+      <label for="clockNo">No</label><br>
 
     <p>Show Date:</p>
-    <input type="radio" id="dateYes" name="date" value="date">
-    <label for="dateYes">Yes</label><br>
-    <input type="radio" id="dateNo" name="date" value="date">
-    <label for="dateNo">No</label><br>
+      <input type="radio" id="dateYes" name="date" value="date">
+      <label for="dateYes">Yes</label><br>
+      <input type="radio" id="dateNo" name="date" value="date">
+      <label for="dateNo">No</label><br>
  
     <p>Show Weather:</p>
-    <input type="radio" id="weatherYes" name="weather" value="weather">
-    <label for="weatherYes">Yes</label><br>
-    <input type="radio" id="weatherNo" name="weather" value="weather">
-    <label for="weatherNo">No</label><br>
+      <input type="radio" id="weatherYes" name="weather" value="weather">
+      <label for="weatherYes">Yes</label><br>
+      <input type="radio" id="weatherNo" name="weather" value="weather">
+      <label for="weatherNo">No</label><br>
     
     <p>Show Calendar Events:</p>
-    <input type="radio" id="calendarYes" name="calendar" value="calendar">
-    <label for="calendarYes">Yes</label><br>
-    <input type="radio" id="calendarNo" name="calendar" value="calendar">
-    <label for="calendarNo">No</label><br>
+      <input type="radio" id="calendarYes" name="calendar" value="calendar">
+      <label for="calendarYes">Yes</label><br>
+      <input type="radio" id="calendarNo" name="calendar" value="calendar">
+      <label for="calendarNo">No</label><br>
+
+      <input type="button" onclick="checkWeatherButton()" value="Submit Preferences">
     
 </body>
-<script>
-    if(clock.item(clockYes) == true){
-        getTime();
-    }
-
-</script>
+  <script>
+    // if(clock.item(clockYes) == true){
+    //     getTime();
+    // }
+  </script>
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');    
@@ -48,19 +50,47 @@
     p{
         font-size: 30px;   
     }
-
     label{
         font-size: 20px;
     }
-
     h1{
         background-color: lightgrey;
         width: 350px;
          border: 7px solid black;
     }
-
 </style>
 
 <body bgcolor="#E0E0E0"></body>
+
+<html>
+  <head>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function start() {
+        // Initializes the client with the API key and the Translate API.
+        gapi.client.init({
+          'apiKey': 'YOUR_API_KEY',
+          'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/calendar/v2/rest'],
+        }).then(function() {
+          // Executes an API request, and returns a Promise.
+          // The method name `language.translations.list` comes from the API discovery.
+          return gapi.client.language.translations.list({
+            q: 'hello world',
+            source: 'en',
+            target: 'de',
+          });
+        }).then(function(response) {
+          console.log(response.result.data.translations[0].translatedText);
+        }, function(reason) {
+          console.log('Error: ' + reason.result.error.message);
+        });
+      };
+
+      // Loads the JavaScript client library and invokes `start` afterwards.
+      gapi.load('client', start);
+    </script>
+  </head>
+  <body>
+    <div id="results"></div>
+  </body>
 </html>
-<!--font-family: 'Montserrat', sans-serif;-->
