@@ -29,12 +29,12 @@
       <label for="weatherNo">No</label><br>
     
     <p>Show Calendar Events:</p>
-      <input type="radio" id="calendarYes" name="calendar" value="calendar">
+      <input type="radio" id="eventsYes" name="calendar" value="calendar">
       <label for="calendarYes">Yes</label><br>
-      <input type="radio" id="calendarNo" name="calendar" value="calendar">
+      <input type="radio" id="eventsNo" name="calendar" value="calendar">
       <label for="calendarNo">No</label><br>
 
-      <input type="button" onclick="checkWeatherButton()" value="Submit Preferences">
+      <input type="button" onclick="checkWeatherButton(), checkDateButton(), checkEventsButton(), checkDateButton()" value="Submit Preferences">
     
 </body>
   <script>

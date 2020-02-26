@@ -15,6 +15,30 @@ function checkWeatherButton(){
     }
 }
 
+function checkClockButton(){
+    if(document.getElementById("clockYes").checked){
+        console.log("yesButton");
+    }else{
+        console.log("TEST_no result");
+    }
+}
+
+function checkDateButton(){
+    if(document.getElementById("dateYes").checked){
+        console.log("yesDate");
+    }else{
+        console.log("TEST no result");
+    }
+}
+
+function checkEventsButton(){
+    if(document.getElementById("eventsYes").checked){
+        console.log("yesEvent");
+    }else{
+        console.log("TEST no result");
+    }
+}
+
 
 function getWeather(){
     console.log("In getWeather()");
@@ -25,10 +49,8 @@ function getWeather(){
     
     function weatherCallback(weatherData){
             console.log(weatherData.weather[0].description);
-            var descriptionOfWeather = weatherData.weather[0].description
+            var descriptionOfWeather = weatherData.weather[0].description;
     }
-    console.log(descriptionOfWeather);
-
 
 }
 
