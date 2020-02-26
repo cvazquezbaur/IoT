@@ -9,33 +9,40 @@ var noResponse = "TEST_no result";
 
 function checkWeatherButton(){
     if(document.getElementById("weatherYes").checked){
-        getWeather();
+        var displayWeather = getWeather();
     }else{
         console.log("TEST_no result");
+        var displayWeather = "no";
     }
 }
 
 function checkClockButton(){
     if(document.getElementById("clockYes").checked){
         console.log("yesButton");
+        var displayClock = "yes";
     }else{
         console.log("TEST_no result");
+        var displayClock = "no";
     }
 }
 
 function checkDateButton(){
     if(document.getElementById("dateYes").checked){
         console.log("yesDate");
+        var displayDate = "yes";
     }else{
         console.log("TEST no result");
+        var displayDate = "no";
     }
 }
 
 function checkEventsButton(){
     if(document.getElementById("eventsYes").checked){
         console.log("yesEvent");
+        var displayEvents = "yes";
     }else{
         console.log("TEST no result");
+        var displayEvents = "no";
     }
 }
 
