@@ -1,3 +1,7 @@
+#Caterina Valdovinos, Carlos Vazquez Baur, Caroline Sonnen
+#March 6, 2020
+#This document holds the accessing and formatting code for the Google Calendar API used
+#Source<https://developers.google.com/calendar/quickstart/python> from Google Developers Calendar API
 from __future__ import print_function
 import datetime
 import pickle
@@ -21,7 +25,7 @@ def main():
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
-    # If there are no (valid) credentials available, let the user log in.
+    # If there are no (valid) credentials available, let the user log in. User will have to login using their google address prior to using this website.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
@@ -48,6 +52,8 @@ def main():
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
         print(event['summary'])
+    #created a variable called start that will hold the name of the events the user has
+    #this loop only gets the event in the given events, this will only show events on that current day
 
 
 if __name__ == '__main__':
