@@ -1,3 +1,7 @@
+<!--Caterina Valdovinos, Carlos Vazquez Baur, Caroline Sonnen
+March 6, 2020
+This document holds the proper php and html code to create the website where the user is able to choose what information they want displayed on the LED Matrix board
+Source <https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap> to access the new safe font for the website-->
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -12,22 +16,22 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
+//This function validates all input brought in through the webstie which will determine what information will be processed and displayed
 function validateForm(){
-    // Check weather
+    //Checks is the weather radio button has been selected if so, it will be displayed on the matrix
     var weather = "";
-    
     if(document.myform.weatherYes.checked){
         displayWeather = "yes";
         weather = getWeather();
     }
     
-    // Check time
+    //Checks is the time radio button has been selected if so, it will be displayed on the matrix
     var displayClock = ""
     if(document.myform.clockYes.checked){
         var displayClock = "yes";
     }
 
-    // Check event
+    //Checks is the calendar event radio button has been selected if so, it will be displayed on the matrix
     var displayEvents = "";
     if(document.myform.eventsYes.checked){
         console.log("yesEvent");
@@ -36,6 +40,8 @@ function validateForm(){
     return true;
 }
 
+//This function getWeather() makes the call to the weather API and returns the descroption of today's weather
+//In the API link, the location is set to the longitude and latitude of Spokane, WA
 function getWeather(){
     var apiCall = 'https://api.openweathermap.org/data/2.5/weather?q=Spokane&appid=baf131fb3ed6dea0cd72bf8aeb8762dd';
     var weather = ['http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={baf131fb3ed6dea0cd72bf8aeb8762dd}']
@@ -45,17 +51,14 @@ function getWeather(){
         return weatherData.weather[0].description;
     }
     
-    
     return $.getJSON(apiCall, weatherCallback);
 }
-
 </script>
 <head>
 <title>C3</title>
 </head>
-
 <h1>C3 LED Matrix Smart Clock</h1>
-
+    <!--These form creates the three radio buttons that allow the user to choose what elements should be posted-->
 	<form name="myform" onsubmit="return validateForm(this);" action = "website.php" method = "post">
 	    <p>Show Clock:</p>
 	      <input type="radio" id="clockYes" name="clock" value="clockYes">
@@ -78,8 +81,9 @@ function getWeather(){
 	      <input name = "submit" type="submit" value="Submit Preferences">
     	</form>
 </body>
-<style>
 
+<!--Within this style brackets, a new font is imported to be used -->
+<style>
 @import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');    
     * {
         font-family: 'Barlow Semi Condensed', sans-serif;    }
@@ -95,6 +99,5 @@ function getWeather(){
          border: 7px solid black;
     }
 </style>
-
 <body bgcolor="#E0E0E0"></body>
 </html>
