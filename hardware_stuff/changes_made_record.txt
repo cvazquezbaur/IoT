@@ -1,0 +1,8 @@
+-removed all other choices of gpiomapping in hardware-mapping.cc except 'classic-pi1'
+-lib\ledmatrix.cc
+    -in RGBMatrix Options (line 189)
+        -set all the options with accordance to our matrix
+-MYtest/samplebase
+    -set --led-slowdown-gpio in samplebase to default 4
+    -removed unnecessary args in init and process
+    -renamed object to Base
